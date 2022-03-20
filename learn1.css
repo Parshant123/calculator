@@ -1,0 +1,48 @@
+.cal{
+    box-sizing: border-box;
+    margin-left:550px ;
+    margin-right:400px ;
+    margin-top: 180px;
+
+}
+.body{
+    margin: 0;
+  
+}
+.screen{
+    color: white;
+    background-color: black;
+    text-align: right;
+    height: 70;
+   font-size: 40px;
+}
+.button{
+    color: black;
+    background-color: #d8d9db;
+    cursor: pointer;
+    width: 24.5%;
+    height: 70;
+    font-size: 40px;
+}
+.button:hover{
+    background-color: #ebebeb;
+}
+.orange{
+    color: white;
+    background-color: #df974c;
+}
+.orange:hover{
+    background-color: #dfb07e;
+}
+.double{
+    width: 49.7%;
+}
+.triple{
+    width:74.8% ;
+}
+.button-row{
+    display: flex;
+    justify-content: space-around;
+}
+
+
