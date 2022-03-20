@@ -1,3 +1,4 @@
+// cheaking sync to github
 let buffer = '0';
 let runningTotal = 0;
 let previousOperator;
