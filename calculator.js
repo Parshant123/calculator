@@ -1,55 +1,51 @@
-// cheaking sync to github
 let buffer = '0';
 let runningTotal = 0;
 let previousOperator;
-// get screen and show inputs
+
 const screen =
-    document.querySelector(".screen");
+    document.querySelector('.screen');
 
 function rerender() {
     screen.innerText = buffer;
 }
 
-function handleNumber(value) {
+function handleMath(value) {
     if (buffer === '0') {
         buffer = value;
     } else {
-        buffer = buffer + value;    
+        buffer = buffer + value;
     }
 }
-function handleMath(value) {
+function handleMath(numberBuffer) {
     if (previousOperator) {
         flushOperator(parseInt(buffer));
     } else {
-        runningTotal = parseInt(buffer);
+        runningTotal(parseInt(buffer));
     }
     previousOperator = value;
     buffer = '0';
 }
 function flushOperator(numberBuffer) {
-    if (previousOperator === "+") {
+    if (previousOperator === '+') {
         runningTotal = runningTotal + numberBuffer;
         return;
     }
-    if (previousOperator === "-") {
-        runningTotal = runningTotal - numberBuffer;
+    if (previousOperator === '-') {
+        runningTotal = runningTotal + numberBuffer;
         return;
     }
-    if (previousOperator === "*") {
-        runningTotal = runningTotal * numberBuffer;
+    if (previousOperator === '*') {
+        runningTotal = runningTotal + numberBuffer;
         return;
     }
-    if (previousOperator === "/") {
-        runningTotal = runningTotal / numberBuffer;
+    if (previousOperator === '/') {
+        runningTotal = runningTotal + numberBuffer;
         return;
     }
 }
 function handleSymbol(value) {
-
-
     if (['+', '-', '/', '*'].includes(value)) {
-
-        handleMath(value)
+        handleSymbol(value);
         return;
     }
     if (value === '←') {
@@ -57,7 +53,6 @@ function handleSymbol(value) {
             buffer = '0';
             return;
         }
-
         buffer = buffer.substring(0, buffer.length - 1);
         return;
     }
@@ -78,17 +73,13 @@ function handleSymbol(value) {
     }
 }
 function buttonClick(value) {
-    if (isNaN(parseInt(value))) {
+    if (isNaN(parsent(value))) {
         handleSymbol(value);
-
     } else {
-
         handleNumber(value);
     }
-
     rerender();
 }
-//listen on button clicks and change the screen
-document.querySelector('.cal-button').addEventListener('click', (event) => {
-    buttonClick(event.target.innerText);
+document.querySelector('.cal-button').addEventListener('click', (value) => {
+    buttonClick(event.target.innerText)
 });
