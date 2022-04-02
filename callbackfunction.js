@@ -9,5 +9,5 @@ function ascendingOrder(arr) {
     } 
    
 }
-let acending = ascendingOrder[1, 8, 5, 7, 9];
+let acending = ascendingOrder[1, 8, 5, 7,2,9];
 console.log(acending);
