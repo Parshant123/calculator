@@ -6,5 +6,5 @@ function add(arr1, arr2) {
     }
     return result;
 }
-let addission = add([1, 5, 8, 7],[5, 8, 7, 9]);
-console.log(addission);
+let addition = add([1, 5, 8, 7],[5, 8, 7, 9]);
+console.log(addition);
